@@ -17,7 +17,7 @@ app.post "/images", multer
   onFileUploadStart: (file, req, res)->
     DONT_SAVE = no
     if not isImage(file.name)
-      res.status(400).send "Not a image file!"
+      res.status(200).json {result: "Not a image file!"}
       return DONT_SAVE
     else 
       return true

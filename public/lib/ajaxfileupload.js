@@ -88,7 +88,7 @@ jQuery.extend({
 				}						
             }catch(e)
 			{	s.completeerr();
-				jQuery.handleError(s, xml, null, e);
+				s.error(s, xml, null, e);
 				
 			}
 			
@@ -111,11 +111,11 @@ jQuery.extend({
                         if( s.global )
                             jQuery.event.trigger( "ajaxSuccess", [xml, s] );
                     } else
-                        jQuery.handleError(s, xml, status);
+                        s.error && s.error(s, xml, status);
                 } catch(e) 
 				{
                     status = "error";
-                    jQuery.handleError(s, xml, status, e);
+                    s.error && s.error(s, xml, status, e);
                 }
 
                 // The request was completed
@@ -140,7 +140,7 @@ jQuery.extend({
 											
 										} catch(e) 
 										{
-											jQuery.handleError(s, xml, null, e);
+											s.error(s, xml, null, e);
 										}									
 
 									}, 100)
@@ -176,7 +176,7 @@ jQuery.extend({
 
         } catch(e) 
 		{			
-            jQuery.handleError(s, xml, null, e);
+            s.error(s, xml, null, e);
         }
 		
 		jQuery('#' + frameId).load(uploadCallback	);

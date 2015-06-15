@@ -38,18 +38,20 @@ initGamePage = ->
       dataType: 'jsonp'
       success: (data)->
         data = JSON.parse $(data).html()
-        showImage(data.path)
-        $fileInput.replaceWith """
-          <input type="file" name="image" id="image-upload" class="button button-long"></a>
-        """
-      error: (data)->
-        showError data
+        if data.result is "OK"
+          showImage(data.path)
+          $fileInput.replaceWith """
+            <input type="file" name="image" id="image-upload" class="button button-long"></a>
+          """
+        else
+          showError data
 
 showImage = (path)->
   $("#avatar").attr "src", path
 
-showError = ->
-  console.log data
+showError = (data)->
+  if data.result is "Not a image file!"
+    alert "请上传图片文件"
 
 hideGameMask = ->    
   $gamePage.find("div.mask").hide()

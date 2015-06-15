@@ -10,6 +10,8 @@
     <input type="file" name="image" id="image-upload" class="button button-long"></a>
   </div>
 
+<br>
+<br>
   <div class="button-group actions">
     <a class="button replay">重新再来</a>
     <a class="button next">下一步</a>
