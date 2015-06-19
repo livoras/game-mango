@@ -4,6 +4,7 @@ multer = require "multer"
 path = require "path"
 app = express()
 bodyParser = require 'body-parser'
+config = require "./config"
 
 app.use express.static(path.join(__dirname, 'public'))
 #app.use multer({dest: "./public/uploads"})
@@ -24,7 +25,7 @@ app.post "/images", multer
   onFileUploadComplete: (file, req, res)->
     res.json 
       result: "OK"
-      path: "/uploads/#{file.name}"
+      path: "#{config.HOST}/uploads/#{file.name}"
 
 isImage = (fileName)->
   ext = (path.extname fileName).toLowerCase()
