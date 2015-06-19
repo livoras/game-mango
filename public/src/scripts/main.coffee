@@ -80,7 +80,11 @@ showGameMask = ->
   $gamePage.find("div.mask").show()
 
 next = ->
+  # 这里为了测试用了测试图片，最后应该改成 
+  # image = state.image
   image = "http://www.faceplusplus.com/wp-content/themes/faceplusplus/assets/img/demo/thumbnail/16.jpg?v=2"
+
+  # 头像识别API
   faceUrl = "http://apicn.faceplusplus.com/v2/detection/detect?api_key=f34b1299bea284030a64c5be59bb740f&api_secret=kyPK61kwrPM2QgYRri4Y1QWq7mBnQM93&url="
   showPage($gameResultPage)
   $.ajax
@@ -170,5 +174,5 @@ showPage = ($page)->
   $(".page").hide()
   $page.show()
 
-init();
-next()
+init()
+#next() # 测试
