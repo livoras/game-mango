@@ -18,3 +18,5 @@ npm install gulp -g
 ```
 cd public && gulp
 ```
+
+Then open `http://localhost:8080/bin`.
